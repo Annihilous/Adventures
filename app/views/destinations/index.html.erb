@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div id="map-canvas"></div>
+
+<h1>Listing Destinations</h1>
+
+<ul class = "nav nav-pills" role = "tablist">
+  <li><%= link_to "All", destinations_path %></li>
+  <% @my_countries.each do | country | %>
+    <li><%= link_to "#{country.country}", controller: "destinations", country: "#{country.country}" %></li>
+  <% end %>
+</ul>
+<p></p>
+
+<% @destinations.each_slice(3) do |destinations| %>
+  <div class="row">
+    <% destinations.each do |destination| %>
+
+      <div class="col-md-4">
+        <!-- <div class = "panel panel-default"> -->
+        <div class="destination-panel">
+        <h3><%= destination.city %>, <%= destination.country %></h3>
+        <h6>Population: <%= destination.population %></h6>
+        <%= image_tag destination.avatar.url(:medium, class: "img-responsive") %>
+        <p>Lat, Lng: <%= destination.latitude %>, <%=destination.longitude%></p>
+        <p><%= destination.description %></p>
+        <div class="btn-group"> 
+                  <%= link_to 'Show', destination, class: "btn btn-default" %>
+                  <%= link_to 'Edit', edit_destination_path(destination), class: "btn btn-default" %>
+                  <%= link_to 'Destroy', destination, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+              </div>
+        </div>
+      </div>
+
+      <!-- </div> -->
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
+
+<p></p>
+<%= link_to 'New Destination', new_destination_path, class: "btn btn big_button" %>
+<p></p>

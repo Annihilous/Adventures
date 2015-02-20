@@ -1,0 +1,48 @@
+<style type="text/css">
+div {
+  padding: 0px, 5px;
+  background: transparent;
+  color: <%= @color %> !important;
+}
+</style>
+<h1>Activities!</h1>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<h2>Here's some fun things to do. :-)</h2>
+		<p></p>
+		<p></p>
+
+  <div class ="row">
+        <div class="col-md-12">
+          <p></p>
+        </div>
+  </div>
+  <div class ="row">
+      <div class="col-md-8">
+        <p>Runnig is fun when you want to go really, really fast! Yes! In your face, Gandhi! I daresay that Fry has discovered the smelliest object in the known universe! I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness. I saw you with those two "ladies of the evening" at Elzars. Explain that. Ah, yes! John Quincy Adding Machine. He struck a chord with the voters when he pledged not to go on a killing spree.</p>
+      </div>
+      <div class="col-md-4">
+        <% random = rand(4) %>
+        <% if random == 0 %>
+          <%= image_tag "running.jpg", class: "image_right" %>
+        <% elsif random == 1 %>
+          <%= image_tag "climbing.jpg", class: "image_right" %>
+        <% elsif random == 2 %>
+          <%= image_tag "riding.jpg", class: "image_right" %>
+        <% elsif random == 3 %>
+          <%= image_tag "archery.jpg", class: "image_right" %>
+        <% end %>
+      </div>
+      <div class="col-md-12">
+          <p></p>
+      </div>
+
+</div>
+<p></p>
+<%= link_to "Blue", {controller: "welcome", action: "about", color: "Blue"}, class: "btn btn-custom" %>
+<%= link_to "Red", {controller: "welcome", action: "about", color: "Red"}, class: "btn btn-custom" %>
+<%= link_to "Green", {controller: "welcome", action: "about", color: "Green"}, class: "btn btn-custom" %>
+<%= link_to "Orange", {controller: "welcome", action: "about", color: "Orange"}, class: "btn btn-custom" %>
+<p></p>
